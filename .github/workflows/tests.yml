@@ -46,6 +46,7 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: allure-results
+          path: allure-results
 
       - name: Get Allure history
         uses: actions/checkout@v5
