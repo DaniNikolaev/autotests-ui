@@ -85,11 +85,6 @@ def initialize_browser_state_with_courses(playwright: Playwright) -> None:
 def chromium_page_with_state_with_courses(initialize_browser_state_with_courses,
                                           request: SubRequest,
                                           playwright: Playwright) -> Page:
-    # browser = playwright.chromium.launch(headless=False)
-    # context = browser.new_context(storage_state='browse-state_with_courses.json', base_url=settings.get_base_url())
-    # page = context.new_page()
-    # yield page
-    # browser.close()
     yield from initialize_playwright_page(playwright,
                                           test_name=request.node.name,
                                           storage_state='browse-state_with_courses.json',
