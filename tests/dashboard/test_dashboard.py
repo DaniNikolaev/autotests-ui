@@ -16,6 +16,7 @@ from tools.allure.features import AllureFeature
 @allure.suite(AllureFeature.DASHBOARD)
 @allure.sub_suite(AllureStory.DASHBOARD)
 @pytest.mark.dashboard
+@pytest.mark.regression
 class TestDashboard:
     @allure.title("Check dashboard displaying navbar, sidebar and charts")
     def test_dashboard_displaying(self, dashboard_page_with_state: DashboardPage):
