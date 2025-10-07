@@ -31,11 +31,22 @@ jobs:
         run: |
           pytest -m regression --alluredir=./allure-results --numprocesses auto
 
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+
   publish-report:
     needs: run-tests
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download Allure report
+        uses: actions/download-artifact@v5
+        with:
+          name: allure-results
+
       - name: Get Allure history
         uses: actions/checkout@v5
         if: always()
