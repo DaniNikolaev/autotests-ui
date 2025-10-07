@@ -29,7 +29,7 @@ jobs:
 
       - name: Run UI tests and generate Allure reports
         run: |
-          pytest -m regression --alluredir=./allure-results --numprocesses 2
+          pytest -m regression --alluredir=./allure-results --numprocesses auto
 
       - name: Get Allure history
         uses: actions/checkout@v5
