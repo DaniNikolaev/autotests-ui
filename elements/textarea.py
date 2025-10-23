@@ -1,5 +1,6 @@
 import allure
 from playwright.sync_api import expect
+from ui_coverage_tool import ActionType
 
 from elements.base_element import BaseElement
 from tools.logger import get_logger
@@ -12,6 +13,9 @@ class Textarea(BaseElement):
     def type_of(self) -> str:
         return "Textarea"
 
+    def get_raw_locator(self, nth: int = 0, **kwargs) -> str:
+        return f"{super().get_raw_locator(nth=nth, **kwargs)}//textarea[1]"
+
     def get_locator(self, nth: int = 0, **kwargs):
         return super().get_locator(nth=nth, **kwargs).locator('textarea').first
 
@@ -21,6 +25,8 @@ class Textarea(BaseElement):
         with allure.step(step):
             logger.info(step)
             locator.fill(value)
+
+        self.track_coverage(action_type=ActionType.FILL, nth=nth, **kwargs)
 
     def clear(self, nth: int = 0, **kwargs):
         locator = self.get_locator(nth=nth, **kwargs)
@@ -35,3 +41,5 @@ class Textarea(BaseElement):
         with allure.step(step):
             logger.info(step)
             expect(locator).to_have_value(value)
+
+        self.track_coverage(action_type=ActionType.VALUE, nth=nth, **kwargs)
