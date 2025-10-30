@@ -9,6 +9,13 @@ on:
       - main
 
 jobs:
+  run-linters:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run flake8
+        run: flake8
+
   run-tests:
     runs-on: ubuntu-latest
 

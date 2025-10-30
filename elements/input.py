@@ -41,6 +41,4 @@ class Input(BaseElement):
         with allure.step(step):
             logger.info(step)
             expect(locator).to_have_value(value)
-
         self.track_coverage(action_type=ActionType.VALUE, nth=nth, **kwargs)
-        

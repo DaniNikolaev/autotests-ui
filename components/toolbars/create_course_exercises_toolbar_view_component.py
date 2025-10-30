@@ -1,5 +1,4 @@
 import allure
-from playwright.sync_api import expect
 
 from components.base_component import BaseComponent
 from elements.text import Text

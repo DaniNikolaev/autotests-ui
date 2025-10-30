@@ -1,7 +1,6 @@
-import allure
 import pytest
 from _pytest.fixtures import SubRequest
-from playwright.sync_api import sync_playwright, Page, Playwright
+from playwright.sync_api import Page, Playwright
 
 from config import settings
 from pages.authentication.registration_page import RegistrationPage

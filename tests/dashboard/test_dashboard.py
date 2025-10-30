@@ -1,6 +1,5 @@
 import pytest
 import allure
-from allure_commons.types import Severity
 
 from config import settings
 from pages.dashboard.dashboard_page import DashboardPage

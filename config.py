@@ -1,7 +1,7 @@
 from enum import Enum
 from typing_extensions import Self
 
-from pydantic import EmailStr, FilePath, HttpUrl, DirectoryPath, BaseModel
+from pydantic import FilePath, HttpUrl, DirectoryPath, BaseModel
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -13,7 +13,6 @@ class Browser(str, Enum):
 
 
 class TestUser(BaseModel):
-    #email: EmailStr
     email: str
     username: str
     password: str
@@ -26,7 +25,6 @@ class TestData(BaseModel):
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         extra="allow",
-        
         env_file=".env",
         env_file_encoding="utf-8",
         env_nested_delimiter="."
